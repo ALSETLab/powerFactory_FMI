@@ -1,0 +1,897 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fmiModelDescription
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  fmiVersion="2.0"
+  modelName="SCRX_OG_FMU"
+  guid="{0b6fc0ab-86cd-4255-953c-57487232526e}"
+  generationTool="Dymola Version 2024x, 2023-10-06"
+  generationDateAndTime="2025-03-20T03:05:47Z"
+  variableNamingConvention="structured"
+  numberOfEventIndicators="10">
+  <ModelExchange
+    modelIdentifier="SCRX_OG_FMU"
+    completedIntegratorStepNotNeeded="true"
+    canNotUseMemoryManagementFunctions="true"
+    canGetAndSetFMUstate="true"
+    canSerializeFMUstate="true"
+    providesDirectionalDerivative="true">
+    <SourceFiles>
+      <File
+        name="all.c"/>
+    </SourceFiles>
+  </ModelExchange>
+  <CoSimulation
+    modelIdentifier="SCRX_OG_FMU"
+    canHandleVariableCommunicationStepSize="true"
+    canInterpolateInputs="true"
+    maxOutputDerivativeOrder="1"
+    canNotUseMemoryManagementFunctions="true"
+    canGetAndSetFMUstate="true"
+    canSerializeFMUstate="true"
+    providesDirectionalDerivative="true">
+    <SourceFiles>
+      <File
+        name="all.c"/>
+    </SourceFiles>
+  </CoSimulation>
+  <UnitDefinitions>
+    <Unit
+      name="1"/>
+    <Unit
+      name="s">
+      <BaseUnit s="1"/>
+    </Unit>
+    <Unit
+      name="s-1">
+      <BaseUnit s="-1"/>
+    </Unit>
+  </UnitDefinitions>
+  <TypeDefinitions>
+    <SimpleType
+      name="Modelica.Blocks.Interfaces.BooleanInput">
+      <Boolean/>
+    </SimpleType>
+    <SimpleType
+      name="Modelica.Blocks.Interfaces.BooleanOutput">
+      <Boolean/>
+    </SimpleType>
+    <SimpleType
+      name="Modelica.Blocks.Interfaces.RealInput">
+      <Real/>
+    </SimpleType>
+    <SimpleType
+      name="Modelica.Blocks.Interfaces.RealOutput">
+      <Real/>
+    </SimpleType>
+    <SimpleType
+      name="OpenIPSL.Types.PerUnit">
+      <Real
+        unit="1"/>
+    </SimpleType>
+    <SimpleType
+      name="OpenIPSL.Types.Time">
+      <Real
+        quantity="Time"
+        unit="s"/>
+    </SimpleType>
+    <SimpleType
+      name="Modelica.Blocks.Types.Init">
+      <Enumeration>
+        <Item name="NoInit"
+          value="1"
+          description="No initialization (start values are used as guess values with fixed=false)"/>
+        <Item name="SteadyState"
+          value="2"
+          description="Steady state initialization (derivatives of states are zero)"/>
+        <Item name="InitialState"
+          value="3"
+          description="Initialization with initial states"/>
+        <Item name="InitialOutput"
+          value="4"
+          description="Initialization with initial outputs (and steady state of the states if possible)"/>
+      </Enumeration>
+    </SimpleType>
+  </TypeDefinitions>
+  <DefaultExperiment startTime="0.0"
+    stopTime="1.0"
+    tolerance="0.0001"/>
+  <ModelVariables>
+    <!-- Index for next variable = 1 -->
+    <ScalarVariable
+      name="sCRX.VUEL"
+      valueReference="436207619">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 2 -->
+    <ScalarVariable
+      name="sCRX.VOEL"
+      valueReference="436207620">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 3 -->
+    <ScalarVariable
+      name="sCRX.EFD"
+      valueReference="335544320"
+      description="Excitation Voltage [pu]">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealOutput"
+        unit="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 4 -->
+    <ScalarVariable
+      name="sCRX.EFD0"
+      valueReference="436207616">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"
+        unit="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 5 -->
+    <ScalarVariable
+      name="sCRX.VOTHSG"
+      valueReference="436207617">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 6 -->
+    <ScalarVariable
+      name="sCRX.ECOMP"
+      valueReference="436207618">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"
+        unit="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 7 -->
+    <ScalarVariable
+      name="sCRX.VoltageReference.k"
+      valueReference="100663296"
+      description="Constant output value"
+      variability="fixed">
+      <Real
+        unit="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 8 -->
+    <ScalarVariable
+      name="sCRX.VoltageReference.y"
+      valueReference="100663296"
+      description="Connector of Real output signal"
+      variability="fixed">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealOutput"
+        unit="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 9 -->
+    <ScalarVariable
+      name="sCRX.DiffV.u1"
+      valueReference="100663296"
+      description="Connector of Real input signal 1"
+      variability="fixed">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"
+        unit="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 10 -->
+    <ScalarVariable
+      name="sCRX.DiffV.u2"
+      valueReference="436207618"
+      description="Connector of Real input signal 2">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"
+        unit="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 11 -->
+    <ScalarVariable
+      name="sCRX.DiffV.y"
+      valueReference="369098785"
+      description="Connector of Real output signal">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealOutput"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 12 -->
+    <ScalarVariable
+      name="sCRX.DiffV.k1"
+      valueReference="16777216"
+      description="Gain of input signal 1"
+      causality="parameter"
+      variability="tunable">
+      <Real start="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 13 -->
+    <ScalarVariable
+      name="sCRX.DiffV.k2"
+      valueReference="16777217"
+      description="Gain of input signal 2"
+      causality="parameter"
+      variability="tunable">
+      <Real start="-1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 14 -->
+    <ScalarVariable
+      name="sCRX.XADIFD"
+      valueReference="436207621">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"
+        unit="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 15 -->
+    <ScalarVariable
+      name="sCRX.T_AT_B"
+      valueReference="16777218"
+      description="Ratio between regulator numerator (lead) and denominator (lag) time constants"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        unit="1"
+        start="0.1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 16 -->
+    <ScalarVariable
+      name="sCRX.T_B"
+      valueReference="16777219"
+      description="Regulator denominator (lag) time constant"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        declaredType="OpenIPSL.Types.Time"
+        start="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 17 -->
+    <ScalarVariable
+      name="sCRX.K"
+      valueReference="16777220"
+      description="Excitation power source output gain"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        declaredType="OpenIPSL.Types.PerUnit"
+        start="100"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 18 -->
+    <ScalarVariable
+      name="sCRX.T_E"
+      valueReference="16777221"
+      description="Excitation power source output time constant"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        declaredType="OpenIPSL.Types.Time"
+        start="0.005"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 19 -->
+    <ScalarVariable
+      name="sCRX.E_MIN"
+      valueReference="16777222"
+      description="Minimum exciter output"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        declaredType="OpenIPSL.Types.PerUnit"
+        start="-10"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 20 -->
+    <ScalarVariable
+      name="sCRX.E_MAX"
+      valueReference="16777223"
+      description="Maximum exciter output"
+      causality="parameter"
+      variability="tunable">
+      <Real
+        declaredType="OpenIPSL.Types.PerUnit"
+        start="10"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 21 -->
+    <ScalarVariable
+      name="sCRX.C_SWITCH"
+      valueReference="100663300"
+      description="Feeding selection. False for bus fed, and True for solid fed"
+      variability="constant">
+      <Boolean start="false"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 22 -->
+    <ScalarVariable
+      name="sCRX.r_cr_fd"
+      valueReference="16777224"
+      description="Ratio between crowbar circuit resistance and field circuit resistance"
+      causality="parameter"
+      variability="tunable">
+      <Real start="10"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 23 -->
+    <ScalarVariable
+      name="sCRX.V_erro.k1"
+      valueReference="16777225"
+      description="Gain of input signal 1"
+      causality="parameter"
+      variability="tunable">
+      <Real start="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 24 -->
+    <ScalarVariable
+      name="sCRX.V_erro.k2"
+      valueReference="16777226"
+      description="Gain of input signal 2"
+      causality="parameter"
+      variability="tunable">
+      <Real start="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 25 -->
+    <ScalarVariable
+      name="sCRX.V_erro.k3"
+      valueReference="16777227"
+      description="Gain of input signal 3"
+      causality="parameter"
+      variability="tunable">
+      <Real start="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 26 -->
+    <ScalarVariable
+      name="sCRX.V_erro.u1"
+      valueReference="436207617"
+      description="Connector of Real input signal 1">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 27 -->
+    <ScalarVariable
+      name="sCRX.V_erro.u2"
+      valueReference="369098785"
+      description="Connector of Real input signal 2">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 28 -->
+    <ScalarVariable
+      name="sCRX.V_erro.u3"
+      valueReference="369098786"
+      description="Connector of Real input signal 3">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 29 -->
+    <ScalarVariable
+      name="sCRX.V_erro.y"
+      valueReference="369098787"
+      description="Connector of Real output signal">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealOutput"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 30 -->
+    <ScalarVariable
+      name="sCRX.imLeadLag.u"
+      valueReference="369098787"
+      description="Connector of Real input signal">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 31 -->
+    <ScalarVariable
+      name="sCRX.imLeadLag.y"
+      valueReference="369098791"
+      description="Connector of Real output signal">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealOutput"
+        unit="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 32 -->
+    <ScalarVariable
+      name="sCRX.imLeadLag.K"
+      valueReference="16777228"
+      description="Gain"
+      causality="parameter"
+      variability="tunable">
+      <Real start="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 33 -->
+    <ScalarVariable
+      name="sCRX.imLeadLag.T1"
+      valueReference="100663301"
+      description="Lead time constant"
+      variability="tunable">
+      <Real
+        declaredType="OpenIPSL.Types.Time"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 34 -->
+    <ScalarVariable
+      name="sCRX.imLeadLag.T2"
+      valueReference="100663302"
+      description="Lag time constant"
+      variability="tunable">
+      <Real
+        declaredType="OpenIPSL.Types.Time"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 35 -->
+    <ScalarVariable
+      name="sCRX.imLeadLag.y_start"
+      valueReference="100663303"
+      description="Output start value"
+      variability="tunable">
+      <Real
+        unit="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 36 -->
+    <ScalarVariable
+      name="sCRX.imLeadLag.x_start"
+      valueReference="16777229"
+      description="Start value of state variable"
+      causality="parameter"
+      variability="fixed">
+      <Real start="0"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 37 -->
+    <ScalarVariable
+      name="sCRX.imLeadLag.par1.y"
+      valueReference="100663301"
+      description="Value of Real output"
+      variability="tunable">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealOutput"
+        unit="s"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 38 -->
+    <ScalarVariable
+      name="sCRX.imLeadLag.par2.y"
+      valueReference="100663302"
+      description="Value of Real output"
+      variability="tunable">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealOutput"
+        unit="s"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 39 -->
+    <ScalarVariable
+      name="sCRX.imLeadLag.TF.u"
+      valueReference="369098787"
+      description="Connector of Real input signal">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 40 -->
+    <ScalarVariable
+      name="sCRX.imLeadLag.TF.y"
+      valueReference="369098788"
+      description="Connector of Real output signal">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealOutput"
+        unit="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 41 -->
+    <ScalarVariable
+      name="sCRX.imLeadLag.TF.b[1]"
+      valueReference="100663304"
+      description="Numerator coefficients of transfer function (e.g., 2*s+3 is specified as {2,3})"
+      variability="tunable">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 42 -->
+    <ScalarVariable
+      name="sCRX.imLeadLag.TF.b[2]"
+      valueReference="100663305"
+      description="Numerator coefficients of transfer function (e.g., 2*s+3 is specified as {2,3})"
+      variability="tunable">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 43 -->
+    <ScalarVariable
+      name="sCRX.imLeadLag.TF.a[1]"
+      valueReference="100663306"
+      description="Denominator coefficients of transfer function (e.g., 5*s+6 is specified as {5,6})"
+      variability="tunable">
+      <Real
+        unit="s"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 44 -->
+    <ScalarVariable
+      name="sCRX.imLeadLag.TF.a[2]"
+      valueReference="100663307"
+      description="Denominator coefficients of transfer function (e.g., 5*s+6 is specified as {5,6})"
+      variability="constant">
+      <Real
+        unit="s"
+        start="1.0"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 45 -->
+    <ScalarVariable
+      name="sCRX.imLeadLag.TF.initType"
+      valueReference="100663308"
+      description="Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)"
+      variability="constant">
+      <Enumeration
+        declaredType="Modelica.Blocks.Types.Init"
+        start="4"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 46 -->
+    <ScalarVariable
+      name="sCRX.imLeadLag.TF.x_start[1]"
+      valueReference="100663309"
+      description="Initial or guess values of states"
+      variability="fixed">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 47 -->
+    <ScalarVariable
+      name="sCRX.imLeadLag.TF.y_start"
+      valueReference="100663310"
+      description="Initial value of output (derivatives of y are zero up to nx-1-th derivative)"
+      variability="tunable">
+      <Real
+        unit="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 48 -->
+    <ScalarVariable
+      name="sCRX.imLeadLag.TF.x[1]"
+      valueReference="33554432"
+      description="State of transfer function from controller canonical form">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 49 -->
+    <ScalarVariable
+      name="sCRX.imLeadLag.TF.x_scaled[1]"
+      valueReference="33554432"
+      description="Scaled vector x">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 50 -->
+    <ScalarVariable
+      name="der(sCRX.imLeadLag.TF.x_scaled[1])"
+      valueReference="587202560"
+      description="der(Scaled vector x)">
+      <Real derivative="49"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 51 -->
+    <ScalarVariable
+      name="sCRX.negCurLogic.Vd"
+      valueReference="369098789">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"
+        unit="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 52 -->
+    <ScalarVariable
+      name="sCRX.negCurLogic.Efd"
+      valueReference="335544320">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealOutput"
+        unit="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 53 -->
+    <ScalarVariable
+      name="sCRX.negCurLogic.XadIfd"
+      valueReference="436207621">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"
+        unit="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 54 -->
+    <ScalarVariable
+      name="sCRX.negCurLogic.RC_rfd"
+      valueReference="100663319"
+      variability="tunable">
+      <Real/>
+    </ScalarVariable>
+    <!-- Index for next variable = 55 -->
+    <ScalarVariable
+      name="sCRX.negCurLogic.nstartvalue"
+      valueReference="100663320"
+      variability="fixed">
+      <Real
+        unit="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 56 -->
+    <ScalarVariable
+      name="sCRX.negCurLogic.Crowbar_V"
+      valueReference="369098790">
+      <Real
+        unit="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 57 -->
+    <ScalarVariable
+      name="sCRX.simpleLagLim.u"
+      valueReference="369098791"
+      description="Connector of Real input signal">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"
+        unit="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 58 -->
+    <ScalarVariable
+      name="sCRX.simpleLagLim.y"
+      valueReference="369098792"
+      description="Connector of Real output signal">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealOutput"
+        unit="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 59 -->
+    <ScalarVariable
+      name="sCRX.simpleLagLim.const.y"
+      valueReference="100663322"
+      description="Value of Real output"
+      variability="tunable">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealOutput"
+        unit="s"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 60 -->
+    <ScalarVariable
+      name="sCRX.simpleLagLim.state"
+      valueReference="33554433">
+      <Real
+        unit="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 61 -->
+    <ScalarVariable
+      name="der(sCRX.simpleLagLim.state)"
+      valueReference="587202561">
+      <Real
+        unit="s-1"
+        derivative="60"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 62 -->
+    <ScalarVariable
+      name="sCRX.simpleLagLim.K"
+      valueReference="100663321"
+      description="Gain"
+      variability="tunable">
+      <Real
+        unit="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 63 -->
+    <ScalarVariable
+      name="sCRX.simpleLagLim.T"
+      valueReference="100663322"
+      description="Lag time constant"
+      variability="tunable">
+      <Real
+        declaredType="OpenIPSL.Types.Time"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 64 -->
+    <ScalarVariable
+      name="sCRX.simpleLagLim.y_start"
+      valueReference="100663323"
+      description="Output start value"
+      variability="fixed">
+      <Real
+        unit="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 65 -->
+    <ScalarVariable
+      name="sCRX.simpleLagLim.outMax"
+      valueReference="100663324"
+      description="Maximum output value"
+      variability="tunable">
+      <Real
+        unit="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 66 -->
+    <ScalarVariable
+      name="sCRX.simpleLagLim.outMin"
+      valueReference="100663325"
+      description="Minimum output value"
+      variability="tunable">
+      <Real
+        unit="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 67 -->
+    <ScalarVariable
+      name="sCRX.switch1.u1"
+      valueReference="369098792"
+      description="Connector of first Real input signal">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"
+        unit="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 68 -->
+    <ScalarVariable
+      name="sCRX.switch1.u2"
+      valueReference="100663327"
+      description="Connector of Boolean input signal"
+      variability="fixed">
+      <Boolean
+        declaredType="Modelica.Blocks.Interfaces.BooleanInput"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 69 -->
+    <ScalarVariable
+      name="sCRX.switch1.u3"
+      valueReference="369098793"
+      description="Connector of second Real input signal">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"
+        unit="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 70 -->
+    <ScalarVariable
+      name="sCRX.switch1.y"
+      valueReference="369098789"
+      description="Connector of Real output signal">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealOutput"
+        unit="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 71 -->
+    <ScalarVariable
+      name="sCRX.booleanConstant.k"
+      valueReference="100663327"
+      description="Constant output value"
+      variability="fixed">
+      <Boolean/>
+    </ScalarVariable>
+    <!-- Index for next variable = 72 -->
+    <ScalarVariable
+      name="sCRX.booleanConstant.y"
+      valueReference="100663327"
+      description="Connector of Boolean output signal"
+      variability="fixed">
+      <Boolean
+        declaredType="Modelica.Blocks.Interfaces.BooleanOutput"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 73 -->
+    <ScalarVariable
+      name="sCRX.product.u1"
+      valueReference="436207618"
+      description="Connector of Real input signal 1">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"
+        unit="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 74 -->
+    <ScalarVariable
+      name="sCRX.product.u2"
+      valueReference="369098792"
+      description="Connector of Real input signal 2">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"
+        unit="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 75 -->
+    <ScalarVariable
+      name="sCRX.product.y"
+      valueReference="369098793"
+      description="Connector of Real output signal">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealOutput"
+        unit="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 76 -->
+    <ScalarVariable
+      name="sCRX.DiffV1.u1"
+      valueReference="436207619"
+      description="Connector of Real input signal 1">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 77 -->
+    <ScalarVariable
+      name="sCRX.DiffV1.u2"
+      valueReference="436207620"
+      description="Connector of Real input signal 2">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 78 -->
+    <ScalarVariable
+      name="sCRX.DiffV1.y"
+      valueReference="369098786"
+      description="Connector of Real output signal">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealOutput"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 79 -->
+    <ScalarVariable
+      name="sCRX.DiffV1.k1"
+      valueReference="16777230"
+      description="Gain of input signal 1"
+      causality="parameter"
+      variability="tunable">
+      <Real start="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 80 -->
+    <ScalarVariable
+      name="sCRX.DiffV1.k2"
+      valueReference="16777231"
+      description="Gain of input signal 2"
+      causality="parameter"
+      variability="tunable">
+      <Real start="-1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 81 -->
+    <ScalarVariable
+      name="EFD0"
+      valueReference="352321536"
+      causality="input">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"
+        unit="1"
+        start="1.43511"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 82 -->
+    <ScalarVariable
+      name="VOTHSG"
+      valueReference="352321537"
+      causality="input">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"
+        start="0.0"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 83 -->
+    <ScalarVariable
+      name="ECOMP"
+      valueReference="352321538"
+      causality="input">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"
+        unit="1"
+        start="1.0"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 84 -->
+    <ScalarVariable
+      name="EFD"
+      valueReference="335544320"
+      description="Excitation Voltage [pu]"
+      causality="output">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealOutput"
+        unit="1"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 85 -->
+    <ScalarVariable
+      name="VUEL"
+      valueReference="352321539"
+      causality="input">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"
+        start="1.43518"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 86 -->
+    <ScalarVariable
+      name="VOEL"
+      valueReference="352321540"
+      causality="input">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"
+        start="0.0"/>
+    </ScalarVariable>
+    <!-- Index for next variable = 87 -->
+    <ScalarVariable
+      name="XADIFD"
+      valueReference="352321541"
+      causality="input">
+      <Real
+        declaredType="Modelica.Blocks.Interfaces.RealInput"
+        unit="1"
+        start="0.0"/>
+    </ScalarVariable>
+  </ModelVariables>
+  <ModelStructure>
+    <Outputs>
+      <Unknown index="84"
+        dependencies="49 60 82 83 85 86 87"
+        dependenciesKind="fixed dependent fixed dependent fixed fixed dependent"/>
+    </Outputs>
+    <Derivatives>
+      <Unknown index="50"
+        dependencies="49 82 83 85 86"
+        dependenciesKind="fixed fixed fixed fixed fixed"/>
+      <Unknown index="61"
+        dependencies="49 60 82 83 85 86"
+        dependenciesKind="fixed fixed fixed fixed fixed fixed"/>
+    </Derivatives>
+    <InitialUnknowns>
+      <Unknown index="49"
+        dependencies="12 13 15 16 17 23 24 25 32 79 80 81 82 83 85 86"
+        dependenciesKind="dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent"/>
+      <Unknown index="50"
+        dependencies="12 13 15 16 17 23 24 25 32 79 80 81 82 83 85 86"
+        dependenciesKind="dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent"/>
+      <Unknown index="60"
+        dependencies="81 83"
+        dependenciesKind="dependent dependent"/>
+      <Unknown index="61"
+        dependencies="12 13 15 16 17 18 23 24 25 32 79 80 81 82 83 85 86"
+        dependenciesKind="dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent"/>
+      <Unknown index="84"
+        dependencies="12 13 15 16 17 18 19 20 22 23 24 25 32 79 80 81 82 83 85 86 87"
+        dependenciesKind="dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent dependent"/>
+    </InitialUnknowns>
+  </ModelStructure>
+</fmiModelDescription>
